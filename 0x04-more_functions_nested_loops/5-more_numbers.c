@@ -9,13 +9,8 @@ void print_number(int n)
 {
 	if (n != 0)
 	{
-		if (n >= 10)
-			print_number(n / 10);
+		print_number(n / 10);
 		_putchar('0' + n % 10);
-	}
-	else
-	{
-		_putchar('\n');
 	}
 }
 
@@ -29,6 +24,7 @@ void more_numbers(void)
 
 	for (j = 0; j < 10; j++)
 	{
+		_putchar('0');
 		for (i = 0; i <= 14; i++)
 			print_number(i);
 		_putchar('\n');
