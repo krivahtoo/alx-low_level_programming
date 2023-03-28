@@ -10,7 +10,7 @@ int main(void)
 {
 	long int a = 1, b = 2, c = 0;
 	int i;
-	long long sum = 2;
+	long int sum = 2;
 
 	for (i = 3; i < 4000000; i++)
 	{
@@ -20,7 +20,7 @@ int main(void)
 		if (b % 2 == 0)
 			sum += b;
 	}
-	printf("%lld\n", sum);
+	printf("%ld\n", sum);
 	return (0);
 }
 
