@@ -10,14 +10,9 @@
  */
 int in_array(char *s, char c)
 {
-	int i = 0;
-
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
+	while (*s != '\0')
+		if (*s++ == c)
 			return (1);
-		i++;
-	}
 	return (0);
 }
 
