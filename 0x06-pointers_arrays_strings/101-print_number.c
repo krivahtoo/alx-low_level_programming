@@ -15,7 +15,7 @@ int _abs(int n)
 }
 
 /**
- * print_number - print a number.
+ * print_int - print a number.
  *
  * @n: number to print
  */
