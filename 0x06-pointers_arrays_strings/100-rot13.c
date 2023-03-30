@@ -16,7 +16,7 @@ char *rot13(char *s)
 	while (*s)
 	{
 		for (i = 0; i < 2; i++)
-			if (*s >= ch[i] && *s <= ch[i] + 26)
+			if (*s >= ch[i] && *s <= ch[i] + 25)
 				*s = (((*s - ch[i]) - 13 + 26) % 26) + ch[i];
 		s++;
 	}
