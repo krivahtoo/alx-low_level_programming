@@ -1,0 +1,43 @@
+#include "main.h"
+#include <stddef.h>
+
+/**
+ * _strcmp - compares two strings.
+ *
+ * @s1: string 1
+ * @s2: string 2
+ *
+ * Return: 0 = equal, -ve s1 greater, +ve s2 greater
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+
+	while (s1[i])
+	{
+		if (s1[i] != s2[i])
+			break;
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
+
+/**
+ * _strstr - searches a string for any of a set of bytes.
+ *
+ * @haystack: string to search in.
+ * @needle: string to search for.
+ *
+ * Return: pointer to start of match
+ */
+char *_strstr(char *haystack, char *needle)
+{
+	while (*haystack)
+	{
+		if ((*haystack == *needle) && _strcmp(haystack, needle) == 0)
+			return haystack;
+		haystack++;
+	}
+
+	return (NULL);
+}
