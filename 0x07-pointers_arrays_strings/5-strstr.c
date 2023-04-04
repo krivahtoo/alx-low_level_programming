@@ -13,7 +13,7 @@ int _strcmp(char *s1, char *s2)
 {
 	int i = 0;
 
-	while (s1[i])
+	while (s1[i] != '\0')
 	{
 		if (s1[i] != s2[i])
 			break;
@@ -32,7 +32,7 @@ int _strcmp(char *s1, char *s2)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	while (*haystack)
+	while (*haystack != '\0')
 	{
 		if ((*haystack == *needle) && _strcmp(haystack, needle) == 0)
 			return haystack;
