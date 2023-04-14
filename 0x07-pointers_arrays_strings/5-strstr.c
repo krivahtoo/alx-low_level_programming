@@ -50,7 +50,7 @@ char *_strstr(char *haystack, char *needle)
 
 	while (*haystack != '\0')
 	{
-		if ((*haystack == *needle) && _strncmp(haystack, needle, n) == 0)
+		if ((*haystack == *needle || *needle == '\0') && _strncmp(haystack, needle, n) == 0)
 			return (haystack);
 		haystack++;
 	}
