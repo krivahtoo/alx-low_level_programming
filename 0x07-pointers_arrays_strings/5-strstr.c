@@ -2,24 +2,38 @@
 #include <stddef.h>
 
 /**
- * _strcmp - compares two strings.
+ * _strncmp - compares two strings.
  *
  * @s1: string 1
  * @s2: string 2
+ * @n: s2 lenght
  *
  * Return: 0 = equal, -ve s1 greater, +ve s2 greater
  */
-int _strcmp(char *s1, char *s2)
+int _strncmp(char *s1, char *s2, int n)
 {
 	int i = 0;
 
-	while (s2[i] != '\0')
-	{
-		if (s1[i] == '\0' || s1[i] != s2[i])
+	for (i = 0; i < n; i++)
+		if (s1[i] != s2[i] || s1[i] == '\0')
 			return (1);
-		i++;
-	}
 	return (0);
+}
+
+/**
+ * _strlen - calculates the length of a string.
+ *
+ * @s: string to get length.
+ *
+ * Return: the length of a string.
+ */
+int _strlen(char *s)
+{
+	int n = 0;
+
+	while (*s++ != '\0')
+		n++;
+	return (n);
 }
 
 /**
@@ -32,10 +46,12 @@ int _strcmp(char *s1, char *s2)
  */
 char *_strstr(char *haystack, char *needle)
 {
+	int n = _strlen(needle);
+
 	while (*haystack != '\0')
 	{
-		if ((*haystack == *needle) && _strcmp(haystack, needle) == 0)
-			return haystack;
+		if ((*haystack == *needle) && _strncmp(haystack, needle, n) == 0)
+			return (haystack);
 		haystack++;
 	}
 
