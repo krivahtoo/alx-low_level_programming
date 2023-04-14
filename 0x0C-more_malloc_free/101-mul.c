@@ -21,7 +21,7 @@ void print_ptr(int *ptr, int len)
 	int i = 0;
 
 	reverse_array(ptr, len);
-	while (*ptr == 0)
+	while (*ptr == 0 && len != 1)
 	{
 		len--;
 		ptr++;
