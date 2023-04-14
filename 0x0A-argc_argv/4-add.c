@@ -2,6 +2,24 @@
 #include "main.h"
 
 /**
+ * _isnumber - checks a value contain digits only.
+ *
+ * @ptr: pointer to value to check.
+ *
+ * Return: 1 if c is a digit, 0 otherwise.
+ */
+int _isnumber(char *ptr)
+{
+	while (*ptr != '\0')
+	{
+		if (*ptr < '0' || *ptr > '9')
+			return (0);
+		ptr++;
+	}
+	return (1);
+}
+
+/**
  * main - prints all arguments it receives.
  *
  * @argc: argument count
@@ -15,8 +33,9 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		if ((n = _atoi(argv[i])) > 0)
+		if (_isnumber(argv[i]) == 1)
 		{
+			n = _atoi(argv[i]);
 			sum += n;
 		}
 		else
