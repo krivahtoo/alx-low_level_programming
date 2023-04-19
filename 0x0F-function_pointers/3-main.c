@@ -20,8 +20,12 @@ int main(int argc, char *argv[])
 	}
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
+	if (b == 0 && (*argv[2] == '/' || *argv[2] == '%'))
+	{
+		printf("Error\n");
+		exit(100);
+	}
 	f = get_op_func(argv[2]);
-
 	if (f == NULL)
 	{
 		printf("Error\n");
