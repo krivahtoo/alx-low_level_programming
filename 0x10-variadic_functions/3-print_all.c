@@ -3,6 +3,17 @@
 #include <stdarg.h>
 
 /**
+ * print_sep - print separator
+ *
+ * @i: index
+ */
+void print_sep(int i)
+{
+	if (i != 0)
+		printf(", ");
+}
+
+/**
  * print_all - print any values
  *
  * @format: format to print
@@ -20,23 +31,19 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				if (i != 1)
-					printf(", ");
+				print_sep(i);
 				printf("%c", va_arg(ap, int));
 				break;
 			case 'i':
-				if (i != 1)
-					printf(", ");
+				print_sep(i);
 				printf("%d", va_arg(ap, int));
 				break;
 			case 'f':
-				if (i != 1)
-					printf(", ");
+				print_sep(i);
 				printf("%f", va_arg(ap, double));
 				break;
 			case 's':
-				if (i != 1)
-					printf(", ");
+				print_sep(i);
 				s = va_arg(ap, char *);
 				if (s == NULL)
 					s = "(nil)";
