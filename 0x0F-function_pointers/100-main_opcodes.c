@@ -28,7 +28,11 @@ int main(int argc, char *argv[])
 
 	f = &main;
 	for (i = 0; i < n; i++)
-		printf("%02x ", *(unsigned char *)f++);
+	{
+		if (i != 0)
+			printf(" ");
+		printf("%02x", *(unsigned char *)f++);
+	}
 	printf("\n");
 
 	return (0);
