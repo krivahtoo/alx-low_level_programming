@@ -21,7 +21,7 @@ void print_sep(int i)
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	int i = 0;
+	int i = 0, n = 0;
 
 	va_start(ap, format);
 	while (format[i] != '\0')
@@ -31,23 +31,27 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				print_sep(i);
+				print_sep(n);
 				printf("%c", va_arg(ap, int));
+				n++;
 				break;
 			case 'i':
-				print_sep(i);
+				print_sep(n);
 				printf("%d", va_arg(ap, int));
+				n++;
 				break;
 			case 'f':
-				print_sep(i);
+				print_sep(n);
 				printf("%f", va_arg(ap, double));
+				n++;
 				break;
 			case 's':
-				print_sep(i);
+				print_sep(n);
 				s = va_arg(ap, char *);
 				if (s == NULL)
 					s = "(nil)";
 				printf("%s", s);
+				n++;
 				break;
 		}
 		i++;
