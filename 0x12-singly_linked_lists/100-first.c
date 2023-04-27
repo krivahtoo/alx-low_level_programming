@@ -4,7 +4,7 @@
 void first(void) __attribute__ ((constructor));
 
 /**
- * startup - prints before the main function is executed.
+ * first - prints before the main function is executed.
  */
 void first(void)
 {
