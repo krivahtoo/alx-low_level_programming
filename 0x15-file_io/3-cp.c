@@ -38,22 +38,22 @@ int main(int argc, char *argv[])
 	file_to = argv[2];
 	fd_in = open(file_from, O_RDONLY);
 	if (fd_in < 0)
-		bail(98, "Error: Can't read from file %s", file_from);
+		bail(98, "Error: Can't read from file ", file_from);
 	fd_out = open(
 		file_to,
 		O_WRONLY | O_CREAT | O_TRUNC,
 		S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH
 	);
 	if (fd_out < 0)
-		bail(99, "Error: Can't write to %s", file_to);
+		bail(99, "Error: Can't write to ", file_to);
 	do {
 		i = read(fd_in, buf, 1024);
 		if (i < 0)
-			bail(98, "Error: Can't read from file %s", file_from);
+			bail(98, "Error: Can't read from file ", file_from);
 
 		count = write(fd_out, buf, i);
 		if (count < 0)
-			bail(99, "Error: Can't write to %s", file_to);
+			bail(99, "Error: Can't write to ", file_to);
 	} while (i >= 1024);
 	i = close(fd_in);
 	if (i == -1)
