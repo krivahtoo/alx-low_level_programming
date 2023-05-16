@@ -44,7 +44,8 @@ int main(void)
 	size_t len = 0;
 	int i;
 
-	printf("$ ");
+	if (isatty(fileno(stdin)))
+		printf("$ ");
 	fflush(stdout);
 	i = _getline(&input, &len, stdin);
 	if (i == -1)
