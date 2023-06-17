@@ -14,7 +14,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	dlistint_t *h = head;
 
 	/* get the real head node */
-	while (h->prev)
+	while (h != NULL && h->prev)
 		h = h->prev;
 
 	while (h != NULL && index != i)
