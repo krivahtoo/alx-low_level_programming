@@ -22,13 +22,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new->n = n;
 	new->prev = NULL;
 	new->next = NULL;
-	if (node == NULL)
+	if (node == NULL && idx == 0)
 	{
 		*h = new;
 		return (new);
 	}
 	/* get the real head node */
-	while (node->prev)
+	while (node && node->prev)
 		node = node->prev;
 
 	while (node != NULL && idx != i)
