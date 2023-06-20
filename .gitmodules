@@ -1,3 +1,6 @@
 [submodule "0x11-printf"]
 	path = 0x11-printf
 	url = git@github.com:krivahtoo/printf.git
+[submodule "0x19-stacks_queues"]
+	path = 0x19-stacks_queues
+	url = git@github.com:krivahtoo/monty.git
