@@ -35,26 +35,29 @@ hash_node_t *new_node(const char *key, const char *value)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new, *node = NULL;
-	int i = 0;
-	unsigned long int index = hash_djb2((unsigned char *)key) % ht->size;
+	hash_node_t *new, *node = NULL, *tmp;
+	unsigned long int idx;
 
-	node = ht->array[index];
-	if (node == NULL)
+	if (ht == NULL)
+		return (0);
+	idx = key_index((unsigned char *)key, ht->size);
+	node = ht->array[idx];
+	tmp = node;
+	while (tmp)
 	{
-		new = new_node(key, value);
-		ht->array[index] = new;
-		return (1);
+		if (strcmp(tmp->key, key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = strdup(value);
+			return (1);
+		}
+		tmp = tmp->next;
 	}
-	if (strcmp(node->key, key) == 0)
-	{
-		free(node->value);
-		node->value = strdup(value);
-	}
-	else
-	{
-		new = new_node(key, value);
-		ht->array[0] = new;
-	}
-	return (i);
+	new = new_node(key, value);
+	if (new == NULL)
+		return (0);
+	if (node)
+		new->next = node;
+	ht->array[idx] = new;
+	return (1);
 }
