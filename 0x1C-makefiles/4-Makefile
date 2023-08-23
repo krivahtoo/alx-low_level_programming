@@ -1,0 +1,27 @@
+CC=gcc
+SRC=$(wildcard *.c)
+OBJ=$(SRC:%.c=%.o)
+NAME=school
+RM=rm
+CFLAGS=-Wall -Werror -Wextra -pedantic
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) -o $@ $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+.PHONY: clean oclean fclean
+clean: fclean
+
+oclean:
+	$(RM) -f $(OBJ)
+
+fclean: oclean
+	$(RM) -f $(NAME)
+	$(RM) -f $(wildcard *.swp)
+	$(RM) -f $(wildcard *~)
+
+re: clean all
