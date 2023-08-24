@@ -10,14 +10,16 @@ def island_perimeter(grid):
             if grid[y][x] == 1:
                 lst.append((y, x))
     perim = 0
+    l1 = len(grid)
+    l2 = len(grid[0])
     for y, x in lst:
-        if grid[y-1][x] == 0:
+        if y != 0 and grid[y-1][x] == 0:
             perim += 1
-        if grid[y][x-1] == 0:
+        if x != 0 and grid[y][x-1] == 0:
             perim += 1
-        if grid[y][x+1] == 0:
+        if x != l2 - 1 and grid[y][x+1] == 0:
             perim += 1
-        if grid[y+1][x] == 0:
+        if y != l1 - 1 and grid[y+1][x] == 0:
             perim += 1
     return perim
 

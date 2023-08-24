@@ -1,7 +1,7 @@
 CC=gcc
-SRC=$(wildcard *.c)
+SRC=main.c school.c
 
 BIN=school
 
 all:
-	$(CC) main.c school.c -o $(BIN)
+	$(CC) $(SRC) -o $(BIN)
