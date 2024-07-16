@@ -7,7 +7,8 @@
  * @array: array to be printed
  * @size: the number of elements in array
  */
-void print_array(int *array, size_t size) {
+void print_array(int *array, size_t size)
+{
 	size_t i = 0;
 
 	printf("Searching in array: ");
@@ -34,17 +35,18 @@ void print_array(int *array, size_t size) {
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t l = 0;
+	size_t mid, l = 0;
 	size_t r = size - 1;
+
 	if (array == NULL)
-		return -1;
+		return (-1);
 
 	while (l <= r)
 	{
-		size_t mid = l + (r - l) / 2;
+		mid = l + (r - l) / 2;
 		print_array(array + l, r - l + 1);
 		if (array[mid] == value)
-			return mid;
+			return (mid);
 		if (array[mid] < value)
 			l = mid + 1;
 		else
